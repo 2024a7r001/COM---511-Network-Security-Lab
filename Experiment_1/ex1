@@ -1,0 +1,31 @@
+def encrypt(text, key):
+    result = ""
+    for i, c in enumerate(text):
+        if c.isalpha():
+            shift = ord(key[i % len(key)].lower()) - ord('a')
+            result += chr((ord(c.lower()) - ord('a') + shift) % 26 + ord('a'))
+        else:
+            result += c
+    return result
+
+
+def decrypt(text, key):
+    result = ""
+    for i, c in enumerate(text):
+        if c.isalpha():
+            shift = ord(key[i % len(key)].lower()) - ord('a')
+            result += chr((ord(c) - ord('a') - shift) % 26 + ord('a'))
+        else:
+            result += c
+    return result
+
+
+plaintext = "Network Security"
+key = "key"
+
+ciphertext = encrypt(plaintext, key)
+decrypted = decrypt(ciphertext, key)
+
+print("Encrypted:", ciphertext)
+print("Decrypted:", decrypted)
+print("Round trip correct?", decrypted == plaintext.lower())
