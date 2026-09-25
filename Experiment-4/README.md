@@ -82,9 +82,4 @@ The experiment demonstrated the basic working of an X.509 digital certificate us
 * Create a private Certificate Authority (CA).
 * Test certificate validation using a browser or TLS client.
 
-### Repository Contents
 
-```text
-X509-Self-Signed-Certificate/
-├── READ
-```
