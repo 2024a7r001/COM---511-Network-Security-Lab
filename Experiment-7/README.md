@@ -1,47 +1,78 @@
-Experiment 7: Analyze WPA2 Wireless Security and Capture Handshake with Wireshark
+# Experiment 7: Analyze WPA2 Wireless Security and Capture Handshake with Wireshark
 
-Aim
+## 1. Aim
+To capture and analyze the WPA2 4-way handshake using Wireshark to understand secure wireless communication.
 
-To capture and analyze the WPA2 4-way handshake using Wireshark and understand secure wireless communication.
+## 2. Requirements
+- Computer with Wireshark installed
+- Wi-Fi network secured with WPA2
+- Wireless network adapter supporting monitor mode
+- Network connection
 
-Requirements
+## 3. Methodology
 
-Wireshark
+### A. Open Wireshark
 
-Wi-Fi Network
+Open Wireshark and select the wireless network interface. Enable monitor mode if supported by the adapter and operating system.
 
-Wireless Network Adapter
+### B. Start Packet Capture
 
-Procedure
+Start capturing wireless packets using the selected interface.
 
-Open Wireshark on the system.
+### C. Connect to Wi-Fi
 
-Select the wireless network interface.
+Connect a device to the WPA2-protected wireless network to generate authentication traffic.
 
-Start capturing wireless packets.
+### D. Capture the Handshake
 
-Connect a device to the WPA2-protected Wi-Fi network.
+Capture the WPA2 4-way handshake during the device connection process.
 
-Capture the WPA2 4-way handshake packets.
+### E. Apply Display Filter
 
-Apply the filter eapol in Wireshark.
+Enter the following filter in Wireshark:
 
-Analyze the four handshake messages.
+```text
+eapol
+```
 
-WPA2 4-Way Handshake
+Observe the four EAPOL handshake messages.
 
-Message 1: Access Point sends a random number (ANonce).
+## 4. Context
 
-Message 2: Client sends a random number (SNonce).
+WPA2 (Wi-Fi Protected Access 2) is a wireless security protocol used to protect Wi-Fi networks from unauthorized access. It uses encryption to secure communication between wireless devices and access points.
 
-Message 3: Access Point sends security key information.
+## 5. Theory
 
-Message 4: Client confirms the handshake.
+WPA2 uses a 4-way handshake to establish encryption keys between a client and an access point.
 
-Result
+- **Message 1:** Access Point sends a random number called ANonce.
+- **Message 2:** Client sends its random number called SNonce.
+- **Message 3:** Access Point sends key installation information.
+- **Message 4:** Client confirms the key installation.
 
-Successfully captured and analyzed the WPA2 4-way handshake using Wireshark.
+The handshake helps both devices establish a secure connection.
 
-Conclusion
+## 6. Visualization
 
-WPA2 uses a 4-way handshake to establish secure communication between a wireless client and an access point.
+```text
+Wireless Client                 Access Point
+      |                               |
+      | <------ Message 1 ------------|
+      | ------ Message 2 ------------>|
+      | <------ Message 3 ------------|
+      | ------ Message 4 ------------>|
+      |                               |
+      | <== Secure Communication ===> |
+```
+
+## 7. Results
+
+The WPA2 4-way handshake was captured and analyzed using Wireshark, and the four EAPOL messages were studied.
+
+## 8. Discussion
+
+The WPA2 handshake establishes secure communication between a wireless client and an access point. Wireshark helps analyze network packets and understand the authentication process.
+
+## 9. Improvement
+
+Use strong Wi-Fi passwords, enable WPA2-AES or WPA3 security, update router firmware, and avoid sharing Wi-Fi credentials with unauthorized users.
